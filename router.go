@@ -291,7 +291,7 @@ func (r *Router) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 		// Fast match for static routes
 		leaf := r.getLeaf(req.Method, req.URL.Path)
 		if leaf != nil {
-			leaf.handle(rw, req, nil)
+			leaf.handle(rw, req, make(Params))
 			return
 		}
 
